@@ -11,7 +11,7 @@ const Hero = () => {
             <img 
               src={triniumLogo} 
               alt="TRINIUM Logo" 
-              className="h-16 md:h-20 w-auto"
+              className="h-24 md:h-32 lg:h-36 w-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300"
             />
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
