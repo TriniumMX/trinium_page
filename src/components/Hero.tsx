@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-collaboration.jpg";
 import triniumLogo from "@/assets/trinium-logo.png";
 
 const Hero = () => {
@@ -33,9 +32,9 @@ const Hero = () => {
           <div className="relative animate-fade-in">
             <div className="absolute inset-0 bg-gradient-primary opacity-10 blur-3xl rounded-full"></div>
             <img 
-              src={heroImage} 
-              alt="Equipo colaborando" 
-              className="relative rounded-3xl shadow-2xl w-full animate-float"
+              src={triniumLogo} 
+              alt="TRINIUM - Tecnología con corazón" 
+              className="relative w-full max-w-md mx-auto drop-shadow-2xl animate-float"
             />
           </div>
         </div>
