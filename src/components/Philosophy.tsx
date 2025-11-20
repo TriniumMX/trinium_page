@@ -21,7 +21,9 @@ const Philosophy = () => {
             En TRINIUM hacemos tecnología con corazón.
           </p>
           
-          <Heart className="w-12 h-12 mx-auto text-primary fill-primary/20 animate-pulse" />
+          <div className="relative inline-block mx-auto">
+            <Heart className="w-20 h-20 md:w-24 md:h-24 text-primary fill-primary animate-pulse" />
+          </div>
         </div>
       </div>
     </section>
