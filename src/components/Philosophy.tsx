@@ -1,3 +1,5 @@
+import { Heart } from "lucide-react";
+
 const Philosophy = () => {
   return (
     <section className="py-20 md:py-32 bg-background relative overflow-hidden">
@@ -19,7 +21,7 @@ const Philosophy = () => {
             En TRINIUM hacemos tecnología con corazón.
           </p>
           
-          <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full"></div>
+          <Heart className="w-12 h-12 mx-auto text-primary fill-primary/20 animate-pulse" />
         </div>
       </div>
     </section>
