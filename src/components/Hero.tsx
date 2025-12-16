@@ -22,7 +22,7 @@ const Hero = () => {
           
           <div className="relative animate-fade-in">
             <div className="absolute inset-0 bg-gradient-primary opacity-10 blur-3xl rounded-full"></div>
-            <img src={triniumLogo} alt="TRINIUM - Tecnología con corazón" className="relative w-full max-w-md mx-auto drop-shadow-2xl animate-float" />
+            <img src={triniumLogo} alt="TRINIUM - Tecnología con corazón" className="relative w-full max-w-2xl mx-auto drop-shadow-2xl animate-float" />
           </div>
         </div>
       </div>
