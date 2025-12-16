@@ -1,13 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const FinalCTA = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section className="py-20 md:py-32 bg-gradient-soft">
+    <section className="py-20 md:py-32 bg-gradient-soft" ref={ref}>
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Hablemos.
+        <div 
+          className="max-w-3xl mx-auto text-center space-y-8"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? "translateY(0)" : "translateY(30px)",
+            transition: "all 0.6s ease-out",
+          }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold">
+            <span className="bg-gradient-primary bg-clip-text text-transparent">Hablemos.</span>
           </h2>
           
           <p className="text-2xl text-muted-foreground">
@@ -16,7 +26,7 @@ const FinalCTA = () => {
           
           <Button 
             size="lg" 
-            className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-all text-lg px-10 py-7 rounded-full group"
+            className="bg-gradient-primary text-primary-foreground hover:opacity-90 hover:scale-105 transition-all text-lg px-10 py-7 rounded-full group shadow-lg hover:shadow-xl"
           >
             <Mail className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
             Contáctanos

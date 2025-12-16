@@ -1,4 +1,5 @@
 import { Ear, Sparkles, Wrench, Heart } from "lucide-react";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const steps = [
   {
@@ -24,28 +25,41 @@ const steps = [
 ];
 
 const HowWeWork = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
+  const { ref: stepsRef, getItemStyle } = useStaggerReveal(steps.length, 150);
+
   return (
-    <section className="py-20 md:py-32 bg-gradient-soft">
+    <section id="como-trabajamos" className="py-20 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-            ¿Cómo trabajamos?
+        <div 
+          ref={titleRef}
+          className="text-center mb-16 space-y-4"
+          style={{
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? "translateY(0)" : "translateY(30px)",
+            transition: "all 0.6s ease-out",
+          }}
+        >
+          <h2 className="text-3xl md:text-5xl font-bold">
+            <span className="text-foreground">¿Cómo </span>
+            <span className="bg-gradient-primary bg-clip-text text-transparent">trabajamos?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             No necesitas saber de tecnología. Nosotros lo hacemos por ti.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div ref={stepsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <div
                 key={index}
                 className="relative text-center space-y-4"
+                style={getItemStyle(index)}
               >
                 <div className="flex justify-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-primary flex items-center justify-center shadow-lg">
+                  <div className="w-20 h-20 rounded-full bg-gradient-primary flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
                     <Icon className="w-10 h-10 text-primary-foreground" />
                   </div>
                 </div>
