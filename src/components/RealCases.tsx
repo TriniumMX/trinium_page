@@ -1,37 +1,55 @@
+import { Database, Network, Cloud, Package, Globe, Stethoscope } from "lucide-react";
+import { useStaggerReveal } from "@/hooks/useScrollReveal";
+
 const projects = [
   {
     name: "Hydra",
     description: "Sistema completo de gestión que simplifica procesos y mantiene todo organizado.",
+    icon: Database,
+    tags: ["React", "Node.js", "PostgreSQL"],
   },
   {
     name: "RECODIG",
     description: "Plataforma digital que conecta personas y hace que la información fluya sin complicaciones.",
+    icon: Network,
+    tags: ["Vue.js", "Python", "MongoDB"],
   },
   {
     name: "BUNKER",
     description: "Solución segura en la nube donde guardar y proteger información importante.",
+    icon: Cloud,
+    tags: ["AWS", "Encryption", "Security"],
   },
   {
     name: "Inventory Cloud",
     description: "Control de inventario en tiempo real, desde cualquier lugar, sin perder detalle.",
+    icon: Package,
+    tags: ["React", "Firebase", "Real-time"],
   },
   {
     name: "Sitio web SJR",
     description: "Presencia digital moderna que comunica y conecta con las personas correctas.",
+    icon: Globe,
+    tags: ["Next.js", "Tailwind", "SEO"],
   },
   {
     name: "PANDORA",
     description: "Sistemas médicos que ayudan a profesionales de salud a cuidar mejor a sus pacientes.",
+    icon: Stethoscope,
+    tags: ["React", "HL7", "HIPAA"],
   },
 ];
 
 const RealCases = () => {
+  const { ref, getItemStyle } = useStaggerReveal(projects.length, 100);
+
   return (
-    <section className="py-20 md:py-32 bg-background">
+    <section id="casos-reales" className="py-20 md:py-32 bg-background" ref={ref}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-            Casos reales
+          <h2 className="text-3xl md:text-5xl font-bold">
+            <span className="text-foreground">Casos </span>
+            <span className="bg-gradient-primary bg-clip-text text-transparent">reales</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Proyectos que han ayudado a personas y organizaciones a trabajar mejor
@@ -39,22 +57,43 @@ const RealCases = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group p-8 rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 space-y-4"
-            >
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 rounded-full bg-gradient-primary"></div>
-                <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                  {project.name}
-                </h3>
+          {projects.map((project, index) => {
+            const Icon = project.icon;
+            return (
+              <div
+                key={index}
+                className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 space-y-4 relative overflow-hidden"
+                style={getItemStyle(index)}
+              >
+                {/* Gradient border effect on hover */}
+                <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity" />
+                
+                <div className="flex items-center space-x-3 relative">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    {project.name}
+                  </h3>
+                </div>
+                
+                <p className="text-muted-foreground leading-relaxed relative">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 pt-2 relative">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed">
-                {project.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

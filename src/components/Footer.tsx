@@ -1,9 +1,16 @@
-import { Heart, Mail, Phone, MapPin } from "lucide-react";
+import { Heart, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Github } from "lucide-react";
 import triniumLogo from "@/assets/trinium-logo.png";
+
+const socialLinks = [
+  { icon: Linkedin, href: "#", label: "LinkedIn", hoverColor: "hover:bg-[#0077b5]" },
+  { icon: Twitter, href: "#", label: "Twitter", hoverColor: "hover:bg-[#1da1f2]" },
+  { icon: Instagram, href: "#", label: "Instagram", hoverColor: "hover:bg-[#e4405f]" },
+  { icon: Github, href: "#", label: "GitHub", hoverColor: "hover:bg-[#333]" },
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-background py-16">
+    <footer id="contacto" className="bg-foreground text-background py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div className="space-y-4">
@@ -20,14 +27,14 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Contacto</h3>
             <div className="space-y-3 text-background/80">
-              <div className="flex items-center gap-3">
+              <a href="mailto:hola@trinium.com" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
                 <span>hola@trinium.com</span>
-              </div>
-              <div className="flex items-center gap-3">
+              </a>
+              <a href="tel:+529991234567" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <Phone className="w-5 h-5" />
                 <span>+52 (999) 123-4567</span>
-              </div>
+              </a>
               <div className="flex items-center gap-3">
                 <MapPin className="w-5 h-5" />
                 <span>México</span>
@@ -37,31 +44,30 @@ const Footer = () => {
           
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Síguenos</h3>
-            <div className="flex gap-4">
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
-                aria-label="LinkedIn"
-              >
-                <span className="text-sm font-semibold">in</span>
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
-                aria-label="Twitter"
-              >
-                <span className="text-sm font-semibold">𝕏</span>
-              </a>
+            <div className="flex gap-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a 
+                    key={social.label}
+                    href={social.href} 
+                    className={`w-10 h-10 rounded-full bg-background/10 flex items-center justify-center transition-all duration-300 hover:scale-110 ${social.hoverColor}`}
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
         
         <div className="border-t border-background/20 pt-8 text-center">
           <p className="text-background/60 flex items-center justify-center gap-2">
-            Hecho con <Heart className="w-4 h-4 text-primary fill-primary" /> por TRINIUM
+            Hecho con <Heart className="w-4 h-4 text-primary fill-primary animate-pulse" /> por TRINIUM
           </p>
           <p className="text-background/60 mt-2">
-            Estamos para ayudarte.
+            © {new Date().getFullYear()} TRINIUM. Estamos para ayudarte.
           </p>
         </div>
       </div>
