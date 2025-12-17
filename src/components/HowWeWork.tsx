@@ -65,7 +65,23 @@ const HowWeWork = () => {
                 </div>
                 
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-primary to-accent opacity-30 z-0" />
+                  <div className="hidden lg:flex absolute top-10 left-[60%] w-[80%] z-0 items-center gap-2">
+                    {[...Array(5)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-accent"
+                        style={{
+                          opacity: 0.4 + (i * 0.15),
+                          animation: `pulse 1.5s ease-in-out ${i * 0.2}s infinite`,
+                        }}
+                      />
+                    ))}
+                    <div className="flex-1 h-0.5 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full w-1/3 bg-gradient-to-r from-primary to-accent rounded-full animate-flow"
+                      />
+                    </div>
+                  </div>
                 )}
                 
                 <div className="space-y-2">
