@@ -58,14 +58,14 @@ const HowWeWork = () => {
                 className="relative text-center space-y-4"
                 style={getItemStyle(index)}
               >
-                <div className="flex justify-center">
+              <div className="flex justify-center relative z-10">
                   <div className="w-20 h-20 rounded-full bg-gradient-primary flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
                     <Icon className="w-10 h-10 text-primary-foreground" />
                   </div>
                 </div>
                 
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-primary to-accent opacity-30" />
+                  <div className="hidden lg:block absolute top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-primary to-accent opacity-30 z-0" />
                 )}
                 
                 <div className="space-y-2">
