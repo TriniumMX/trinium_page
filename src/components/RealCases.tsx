@@ -18,16 +18,16 @@ const projects: Project[] = [
     tags: ["React", "Node.js", "PostgreSQL"],
   },
   {
-    name: "RECODIG",
-    description: "Plataforma digital que conecta personas y hace que la información fluya sin complicaciones.",
-    icon: Network,
-    tags: ["Vue.js", "Python", "MongoDB"],
-  },
-  {
     name: "BUNKER",
     description: "Solución segura en la nube donde guardar y proteger información importante.",
     icon: Cloud,
     tags: ["AWS", "Encryption", "Security"],
+  },
+  {
+    name: "RECODIG",
+    description: "Plataforma digital que conecta personas y hace que la información fluya sin complicaciones.",
+    icon: Network,
+    tags: ["Vue.js", "Python", "MongoDB"],
   },
   {
     name: "Inventory Cloud",
