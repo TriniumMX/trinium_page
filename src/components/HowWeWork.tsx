@@ -51,10 +51,10 @@ const HowWeWork = () => {
         
         <div ref={stepsRef} className="relative max-w-6xl mx-auto">
           {/* Curved connectors - only visible on lg screens */}
-          <div className="hidden lg:block absolute top-10 left-0 right-0 z-0 px-[6.25%]">
+          <div className="hidden lg:block absolute top-[40px] left-0 right-0 z-0 px-[6.25%] -translate-y-1/2">
             <svg 
-              viewBox="0 0 1050 60" 
-              className="w-full h-16"
+              viewBox="0 0 1050 80" 
+              className="w-full h-20"
               preserveAspectRatio="xMidYMid meet"
             >
               <defs>
@@ -71,25 +71,25 @@ const HowWeWork = () => {
                   <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
                 </linearGradient>
               </defs>
-              {/* First curve: step 1 to step 2 - starts after circle 1, ends before circle 2 */}
+              {/* First curve: step 1 to step 2 */}
               <path
-                d="M 50 30 Q 175 90 300 30"
+                d="M 50 40 Q 175 100 300 40"
                 fill="none"
                 stroke="url(#curveGradient1)"
                 strokeWidth="3"
                 strokeLinecap="round"
               />
-              {/* Second curve: step 2 to step 3 - starts after circle 2, ends before circle 3 */}
+              {/* Second curve: step 2 to step 3 */}
               <path
-                d="M 400 30 Q 525 -30 650 30"
+                d="M 400 40 Q 525 -20 650 40"
                 fill="none"
                 stroke="url(#curveGradient2)"
                 strokeWidth="3"
                 strokeLinecap="round"
               />
-              {/* Third curve: step 3 to step 4 - starts after circle 3, ends before circle 4 */}
+              {/* Third curve: step 3 to step 4 */}
               <path
-                d="M 750 30 Q 875 90 1000 30"
+                d="M 750 40 Q 875 100 1000 40"
                 fill="none"
                 stroke="url(#curveGradient3)"
                 strokeWidth="3"
