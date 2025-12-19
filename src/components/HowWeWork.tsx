@@ -51,40 +51,47 @@ const HowWeWork = () => {
         
         <div ref={stepsRef} className="relative max-w-6xl mx-auto">
           {/* Curved connectors - only visible on lg screens */}
-          <div className="hidden lg:block absolute top-10 left-0 right-0 z-0">
+          <div className="hidden lg:block absolute top-10 left-0 right-0 z-0 px-[6.25%]">
             <svg 
-              viewBox="0 0 1200 60" 
+              viewBox="0 0 1050 60" 
               className="w-full h-16"
-              preserveAspectRatio="none"
+              preserveAspectRatio="xMidYMid meet"
             >
               <defs>
-                <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
-                  <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+                <linearGradient id="curveGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
+                  <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.7" />
+                </linearGradient>
+                <linearGradient id="curveGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
+                  <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.7" />
+                </linearGradient>
+                <linearGradient id="curveGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.5" />
                   <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
                 </linearGradient>
               </defs>
               {/* First curve: step 1 to step 2 */}
               <path
-                d="M 150 30 Q 225 70 300 30"
+                d="M 0 30 Q 175 80 350 30"
                 fill="none"
-                stroke="url(#curveGradient)"
+                stroke="url(#curveGradient1)"
                 strokeWidth="3"
                 strokeLinecap="round"
               />
               {/* Second curve: step 2 to step 3 */}
               <path
-                d="M 450 30 Q 525 -10 600 30"
+                d="M 350 30 Q 525 -20 700 30"
                 fill="none"
-                stroke="url(#curveGradient)"
+                stroke="url(#curveGradient2)"
                 strokeWidth="3"
                 strokeLinecap="round"
               />
               {/* Third curve: step 3 to step 4 */}
               <path
-                d="M 750 30 Q 825 70 900 30"
+                d="M 700 30 Q 875 80 1050 30"
                 fill="none"
-                stroke="url(#curveGradient)"
+                stroke="url(#curveGradient3)"
                 strokeWidth="3"
                 strokeLinecap="round"
               />
