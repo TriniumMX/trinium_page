@@ -19,7 +19,7 @@ const projects: Project[] = [
   },
   {
     name: "BUNKER",
-    description: "Solución segura en la nube donde guardar y proteger información importante.",
+    description: "Plataforma de gobernanza e identidad Digital",
     icon: Cloud,
     tags: ["AWS", "Encryption", "Security"],
   },
