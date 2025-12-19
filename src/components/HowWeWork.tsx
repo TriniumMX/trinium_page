@@ -71,25 +71,25 @@ const HowWeWork = () => {
                   <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
                 </linearGradient>
               </defs>
-              {/* First curve: step 1 to step 2 */}
+              {/* First curve: step 1 to step 2 - starts after circle 1, ends before circle 2 */}
               <path
-                d="M 0 30 Q 175 80 350 30"
+                d="M 50 30 Q 175 90 300 30"
                 fill="none"
                 stroke="url(#curveGradient1)"
                 strokeWidth="3"
                 strokeLinecap="round"
               />
-              {/* Second curve: step 2 to step 3 */}
+              {/* Second curve: step 2 to step 3 - starts after circle 2, ends before circle 3 */}
               <path
-                d="M 350 30 Q 525 -20 700 30"
+                d="M 400 30 Q 525 -30 650 30"
                 fill="none"
                 stroke="url(#curveGradient2)"
                 strokeWidth="3"
                 strokeLinecap="round"
               />
-              {/* Third curve: step 3 to step 4 */}
+              {/* Third curve: step 3 to step 4 - starts after circle 3, ends before circle 4 */}
               <path
-                d="M 700 30 Q 875 80 1050 30"
+                d="M 750 30 Q 875 90 1000 30"
                 fill="none"
                 stroke="url(#curveGradient3)"
                 strokeWidth="3"
