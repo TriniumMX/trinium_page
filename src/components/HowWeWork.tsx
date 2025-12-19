@@ -49,38 +49,75 @@ const HowWeWork = () => {
           </p>
         </div>
         
-        <div ref={stepsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
-            return (
-              <div
-                key={index}
-                className="relative text-center space-y-4"
-                style={getItemStyle(index)}
-              >
-              <div className="flex justify-center relative z-10">
-                  <div className="w-20 h-20 rounded-full bg-gradient-primary flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-                    <Icon className="w-10 h-10 text-primary-foreground" />
+        <div ref={stepsRef} className="relative max-w-6xl mx-auto">
+          {/* Curved connectors - only visible on lg screens */}
+          <div className="hidden lg:block absolute top-10 left-0 right-0 z-0">
+            <svg 
+              viewBox="0 0 1200 60" 
+              className="w-full h-16"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+                  <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
+                </linearGradient>
+              </defs>
+              {/* First curve: step 1 to step 2 */}
+              <path
+                d="M 150 30 Q 225 70 300 30"
+                fill="none"
+                stroke="url(#curveGradient)"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              {/* Second curve: step 2 to step 3 */}
+              <path
+                d="M 450 30 Q 525 -10 600 30"
+                fill="none"
+                stroke="url(#curveGradient)"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              {/* Third curve: step 3 to step 4 */}
+              <path
+                d="M 750 30 Q 825 70 900 30"
+                fill="none"
+                stroke="url(#curveGradient)"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <div
+                  key={index}
+                  className="relative text-center space-y-4"
+                  style={getItemStyle(index)}
+                >
+                  <div className="flex justify-center relative z-10">
+                    <div className="w-20 h-20 rounded-full bg-gradient-primary flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <Icon className="w-10 h-10 text-primary-foreground" />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
                 </div>
-                
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] z-0">
-                    <div className="h-1 w-full rounded-full bg-gradient-to-r from-primary/20 via-primary/50 to-accent/80 shadow-sm" />
-                  </div>
-                )}
-                
-                <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
