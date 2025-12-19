@@ -4,7 +4,7 @@ import { useStaggerReveal } from "@/hooks/useScrollReveal";
 const projects = [
   {
     name: "Hydra",
-    description: "Sistema completo de gestión que simplifica procesos y mantiene todo organizado.",
+    description: "Sistema de gestión de pozo de agua, usuarios y medidores",
     icon: Database,
     tags: ["React", "Node.js", "PostgreSQL"],
   },
