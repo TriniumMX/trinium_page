@@ -1,11 +1,20 @@
-import { Database, Network, Cloud, Package, Globe, Stethoscope } from "lucide-react";
+import { Network, Cloud, Package, Globe, Stethoscope, LucideIcon } from "lucide-react";
 import { useStaggerReveal } from "@/hooks/useScrollReveal";
+import hydraLogo from "@/assets/hydra-logo.png";
 
-const projects = [
+type Project = {
+  name: string;
+  description: string;
+  icon?: LucideIcon;
+  image?: string;
+  tags: string[];
+};
+
+const projects: Project[] = [
   {
     name: "Hydra",
     description: "Sistema de gestión de pozo de agua, usuarios y medidores",
-    icon: Database,
+    image: hydraLogo,
     tags: ["React", "Node.js", "PostgreSQL"],
   },
   {
@@ -57,9 +66,7 @@ const RealCases = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {projects.map((project, index) => {
-            const Icon = project.icon;
-            return (
+          {projects.map((project, index) => (
               <div
                 key={index}
                 className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 space-y-4 relative overflow-hidden"
@@ -69,8 +76,12 @@ const RealCases = () => {
                 <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity" />
                 
                 <div className="flex items-center space-x-3 relative">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Icon className="w-6 h-6 text-primary-foreground" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
+                    {project.image ? (
+                      <img src={project.image} alt={project.name} className="w-10 h-10 object-contain" />
+                    ) : project.icon ? (
+                      <project.icon className="w-6 h-6 text-primary-foreground" />
+                    ) : null}
                   </div>
                   <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                     {project.name}
@@ -92,8 +103,7 @@ const RealCases = () => {
                   ))}
                 </div>
               </div>
-            );
-          })}
+          ))}
         </div>
       </div>
     </section>
