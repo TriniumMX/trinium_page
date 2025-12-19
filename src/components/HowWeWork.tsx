@@ -73,7 +73,7 @@ const HowWeWork = () => {
               </defs>
               {/* First curve: step 1 to step 2 */}
               <path
-                d="M 50 40 Q 175 100 300 40"
+                d="M 131 40 Q 262 100 394 40"
                 fill="none"
                 stroke="url(#curveGradient1)"
                 strokeWidth="3"
@@ -81,7 +81,7 @@ const HowWeWork = () => {
               />
               {/* Second curve: step 2 to step 3 */}
               <path
-                d="M 400 40 Q 525 -20 650 40"
+                d="M 394 40 Q 525 -20 656 40"
                 fill="none"
                 stroke="url(#curveGradient2)"
                 strokeWidth="3"
@@ -89,7 +89,7 @@ const HowWeWork = () => {
               />
               {/* Third curve: step 3 to step 4 */}
               <path
-                d="M 750 40 Q 875 100 1000 40"
+                d="M 656 40 Q 787 100 919 40"
                 fill="none"
                 stroke="url(#curveGradient3)"
                 strokeWidth="3"
