@@ -1,7 +1,7 @@
-import { Network, Cloud, Package, Globe, Stethoscope, LucideIcon } from "lucide-react";
+import { Network, Package, Globe, Stethoscope, LucideIcon } from "lucide-react";
 import { useStaggerReveal } from "@/hooks/useScrollReveal";
 import hydraLogo from "@/assets/hydra-logo.png";
-
+import bunkerLogo from "@/assets/bunker-logo.png";
 type Project = {
   name: string;
   description: string;
@@ -20,7 +20,7 @@ const projects: Project[] = [
   {
     name: "BUNKER",
     description: "Plataforma de gobernanza e identidad Digital",
-    icon: Cloud,
+    image: bunkerLogo,
     tags: ["AWS", "Encryption", "Security"],
   },
   {
