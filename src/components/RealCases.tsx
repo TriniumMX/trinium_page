@@ -25,7 +25,7 @@ const projects: Project[] = [
   },
   {
     name: "MARIALE",
-    description: "Plataforma digital que conecta personas y hace que la información fluya sin complicaciones.",
+    description: "Sistema simple de punto de venta",
     icon: Network,
     tags: ["Vue.js", "Python", "MongoDB"],
   },
