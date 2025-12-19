@@ -24,7 +24,7 @@ const projects: Project[] = [
     tags: ["AWS", "Encryption", "Security"],
   },
   {
-    name: "RECODIG",
+    name: "MARIALE",
     description: "Plataforma digital que conecta personas y hace que la información fluya sin complicaciones.",
     icon: Network,
     tags: ["Vue.js", "Python", "MongoDB"],
