@@ -1,70 +1,111 @@
-import { Globe, Stethoscope, LucideIcon } from "lucide-react";
+import { useState } from "react";
+import { Globe, Stethoscope, Eye } from "lucide-react";
 import { useStaggerReveal } from "@/hooks/useScrollReveal";
 import hydraLogo from "@/assets/hydra-logo.png";
 import bunkerLogo from "@/assets/bunker-logo.png";
 import marialeLogo from "@/assets/mariale-logo.png";
 import inventoryCloudLogo from "@/assets/inventory-cloud-logo.png";
-type Project = {
-  name: string;
-  description: string;
-  icon?: LucideIcon;
-  image?: string;
-};
+import ProjectModal, { type Project } from "./ProjectModal";
 
 const projects: Project[] = [
   {
     name: "Hydra",
     description: "Sistema de gestión de pozo de agua, usuarios y medidores",
+    fullDescription: "Sistema integral para la gestión de pozos de agua, control de usuarios, medidores y facturación automática.",
     image: hydraLogo,
+    features: [
+      "Control de consumo por medidor",
+      "Facturación automática",
+      "Gestión de usuarios y permisos",
+      "Reportes en tiempo real",
+    ],
   },
   {
     name: "BUNKER",
     description: "Plataforma de gobernanza e identidad Digital",
+    fullDescription: "Plataforma segura para gestión de identidad digital, firma electrónica y gobernanza corporativa.",
     image: bunkerLogo,
+    features: [
+      "Autenticación multifactor",
+      "Firma electrónica avanzada",
+      "Gestión de documentos",
+      "Auditoría y trazabilidad",
+    ],
   },
   {
     name: "MARIALE",
     description: "Sistema simple de punto de venta",
+    fullDescription: "Punto de venta intuitivo y rápido, diseñado para pequeños y medianos negocios.",
     image: marialeLogo,
+    features: [
+      "Interfaz sencilla",
+      "Control de inventario",
+      "Reportes de ventas",
+      "Múltiples métodos de pago",
+    ],
   },
   {
     name: "Inventory Cloud",
     description: "Control de inventario en tiempo real, desde cualquier lugar, sin perder detalle.",
+    fullDescription: "Solución en la nube para gestionar tu inventario desde cualquier dispositivo, con actualizaciones en tiempo real.",
     image: inventoryCloudLogo,
+    features: [
+      "Sincronización en tiempo real",
+      "Alertas de stock bajo",
+      "Múltiples almacenes",
+      "Códigos de barras y QR",
+    ],
   },
   {
     name: "Sitio web SJR",
     description: "Presencia digital moderna que comunica y conecta con las personas correctas.",
+    fullDescription: "Diseño web moderno optimizado para SEO y conversión, creando una presencia digital memorable.",
     icon: Globe,
+    features: [
+      "Diseño responsive",
+      "Optimización SEO",
+      "Velocidad de carga rápida",
+      "Integración con redes sociales",
+    ],
   },
   {
     name: "MERIDIA",
     description: "Plataforma medica integral para el control de citas, referencias, contrareferencias y CIE-11",
+    fullDescription: "Sistema médico completo para gestión de citas, expedientes clínicos, referencias y codificación CIE-11.",
     icon: Stethoscope,
+    features: [
+      "Agenda de citas inteligente",
+      "Expediente clínico electrónico",
+      "Referencias y contrareferencias",
+      "Codificación CIE-11 integrada",
+    ],
   },
 ];
 
 const RealCases = () => {
   const { ref, getItemStyle } = useStaggerReveal(projects.length, 100);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="casos-reales" className="py-20 md:py-32 bg-background" ref={ref}>
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold">
-            <span className="text-foreground">Casos </span>
-            <span className="bg-gradient-primary bg-clip-text text-transparent">reales</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Proyectos que han ayudado a personas y organizaciones a trabajar mejor
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
+    <>
+      <section id="casos-reales" className="py-20 md:py-32 bg-background" ref={ref}>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold">
+              <span className="text-foreground">Casos </span>
+              <span className="bg-gradient-primary bg-clip-text text-transparent">reales</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Proyectos que han ayudado a personas y organizaciones a trabajar mejor
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {projects.map((project, index) => (
               <div
                 key={index}
-                className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 space-y-4 relative overflow-hidden"
+                onClick={() => setSelectedProject(project)}
+                className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 space-y-4 relative overflow-hidden cursor-pointer"
                 style={getItemStyle(index)}
               >
                 {/* Gradient border effect on hover */}
@@ -86,11 +127,24 @@ const RealCases = () => {
                 <p className="text-muted-foreground leading-relaxed relative">
                   {project.description}
                 </p>
+
+                {/* View more indicator */}
+                <div className="flex items-center gap-2 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity pt-2">
+                  <Eye className="w-4 h-4" />
+                  <span>Ver detalles</span>
+                </div>
               </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
+    </>
   );
 };
 
