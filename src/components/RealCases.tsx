@@ -45,7 +45,7 @@ const projects: Project[] = [
   },
   {
     name: "MERIDIA",
-    description: "Sistemas médicos que ayudan a profesionales de salud a cuidar mejor a sus pacientes.",
+    description: "Plataforma integral para el control de citas, referencias, contrareferencias y CIE-11",
     icon: Stethoscope,
     tags: ["React", "HL7", "HIPAA"],
   },
