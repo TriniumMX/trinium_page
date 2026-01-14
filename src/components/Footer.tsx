@@ -27,9 +27,9 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Contacto</h3>
             <div className="space-y-3 text-background/80">
-              <a href="mailto:hola@trinium.com" className="flex items-center gap-3 hover:text-primary transition-colors">
+              <a href="mailto:hola@trinium.com.mx" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
-                <span>hola@trinium.com</span>
+                <span>hola@trinium.com.mx</span>
               </a>
               <a href="tel:+529991234567" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <Phone className="w-5 h-5" />
