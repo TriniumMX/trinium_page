@@ -94,7 +94,7 @@ const Testimonials = () => {
                             {testimonial.author}
                           </p>
                           <p className="text-sm text-muted-foreground">
-                            {testimonial.role}, {testimonial.company}
+                            {testimonial.role}{testimonial.company && `, ${testimonial.company}`}
                           </p>
                         </div>
                       </div>
