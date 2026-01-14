@@ -18,7 +18,7 @@ const testimonials = [
   },
   {
     quote: "Lo que más valoro es su enfoque humano. No solo entregan software, sino soluciones que realmente entienden nuestras necesidades.",
-    author: "Carlos Rodríguez",
+    author: "Arturo Bárcenas",
     role: "Gerente General",
     company: "Innovatech",
     avatar: "CR",
