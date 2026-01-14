@@ -19,8 +19,8 @@ const testimonials = [
   {
     quote: "Lo que más valoro es su enfoque humano. No solo entregan software, sino soluciones que realmente entienden nuestras necesidades.",
     author: "Arturo Bárcenas",
-    role: "Gerente General",
-    company: "Innovatech",
+    role: "Delegado Municipal",
+    company: "",
     avatar: "CR",
   },
   {
