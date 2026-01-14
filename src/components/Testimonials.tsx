@@ -11,7 +11,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const testimonials = [
   {
     quote: "TRINIUM transformó completamente nuestra forma de trabajar. La tecnología que implementaron nos ahorra horas cada semana.",
-    author: "María García",
+    author: "Gabriela",
     role: "Directora de Operaciones",
     company: "Empresa ABC",
     avatar: "MG",
