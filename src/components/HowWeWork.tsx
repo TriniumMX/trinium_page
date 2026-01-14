@@ -26,7 +26,20 @@ const steps = [
 
 const HowWeWork = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
-  const { ref: stepsRef, getItemStyle } = useStaggerReveal(steps.length, 150);
+  const { ref: stepsRef, isVisible: stepsVisible } = useScrollReveal();
+
+  const getItemStyle = (index: number) => ({
+    opacity: stepsVisible ? 1 : 0,
+    transform: stepsVisible ? "translateX(0)" : "translateX(-50px)",
+    transition: `opacity 0.6s ease-out ${index * 150}ms, transform 0.6s ease-out ${index * 150}ms`,
+  });
+
+  const getSvgStyle = () => ({
+    opacity: stepsVisible ? 1 : 0,
+    strokeDasharray: 1000,
+    strokeDashoffset: stepsVisible ? 0 : 1000,
+    transition: "stroke-dashoffset 1.5s ease-out 0.3s, opacity 0.6s ease-out",
+  });
 
   return (
     <section id="como-trabajamos" className="py-20 md:py-32 bg-secondary/30">
@@ -78,6 +91,7 @@ const HowWeWork = () => {
                 stroke="url(#curveGradient1)"
                 strokeWidth="3"
                 strokeLinecap="round"
+                style={getSvgStyle()}
               />
               {/* Second curve: step 2 to step 3 */}
               <path
@@ -86,6 +100,10 @@ const HowWeWork = () => {
                 stroke="url(#curveGradient2)"
                 strokeWidth="3"
                 strokeLinecap="round"
+                style={{
+                  ...getSvgStyle(),
+                  transitionDelay: "0.6s",
+                }}
               />
               {/* Third curve: step 3 to step 4 */}
               <path
@@ -94,6 +112,10 @@ const HowWeWork = () => {
                 stroke="url(#curveGradient3)"
                 strokeWidth="3"
                 strokeLinecap="round"
+                style={{
+                  ...getSvgStyle(),
+                  transitionDelay: "0.9s",
+                }}
               />
             </svg>
           </div>
