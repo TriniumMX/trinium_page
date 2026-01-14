@@ -9,7 +9,6 @@ type Project = {
   description: string;
   icon?: LucideIcon;
   image?: string;
-  tags: string[];
 };
 
 const projects: Project[] = [
@@ -17,37 +16,31 @@ const projects: Project[] = [
     name: "Hydra",
     description: "Sistema de gestión de pozo de agua, usuarios y medidores",
     image: hydraLogo,
-    tags: ["React", "Node.js", "PostgreSQL"],
   },
   {
     name: "BUNKER",
     description: "Plataforma de gobernanza e identidad Digital",
     image: bunkerLogo,
-    tags: ["AWS", "Encryption", "Security"],
   },
   {
     name: "MARIALE",
     description: "Sistema simple de punto de venta",
     image: marialeLogo,
-    tags: ["Vue.js", "Python", "MongoDB"],
   },
   {
     name: "Inventory Cloud",
     description: "Control de inventario en tiempo real, desde cualquier lugar, sin perder detalle.",
     image: inventoryCloudLogo,
-    tags: ["React", "Firebase", "Real-time"],
   },
   {
     name: "Sitio web SJR",
     description: "Presencia digital moderna que comunica y conecta con las personas correctas.",
     icon: Globe,
-    tags: ["Next.js", "Tailwind", "SEO"],
   },
   {
     name: "MERIDIA",
     description: "Plataforma medica integral para el control de citas, referencias, contrareferencias y CIE-11",
     icon: Stethoscope,
-    tags: ["React", "HL7", "HIPAA"],
   },
 ];
 
@@ -93,17 +86,6 @@ const RealCases = () => {
                 <p className="text-muted-foreground leading-relaxed relative">
                   {project.description}
                 </p>
-                
-                <div className="flex flex-wrap gap-2 pt-2 relative">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
           ))}
         </div>
