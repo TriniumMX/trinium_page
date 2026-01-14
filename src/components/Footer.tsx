@@ -1,9 +1,8 @@
-import { Heart, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Github } from "lucide-react";
+import { Heart, Mail, Phone, MapPin, Linkedin, Instagram, Github } from "lucide-react";
 import triniumLogo from "@/assets/trinium-logo.png";
 
 const socialLinks = [
   { icon: Linkedin, href: "#", label: "LinkedIn", hoverColor: "hover:bg-[#0077b5]" },
-  { icon: Twitter, href: "#", label: "Twitter", hoverColor: "hover:bg-[#1da1f2]" },
   { icon: Instagram, href: "#", label: "Instagram", hoverColor: "hover:bg-[#e4405f]" },
   { icon: Github, href: "#", label: "GitHub", hoverColor: "hover:bg-[#333]" },
 ];
