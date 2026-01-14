@@ -44,7 +44,7 @@ const projects: Project[] = [
     tags: ["Next.js", "Tailwind", "SEO"],
   },
   {
-    name: "PANDORA",
+    name: "MERIDIA",
     description: "Sistemas médicos que ayudan a profesionales de salud a cuidar mejor a sus pacientes.",
     icon: Stethoscope,
     tags: ["React", "HL7", "HIPAA"],
