@@ -3,7 +3,7 @@ import { Briefcase, Users, Calendar, Heart } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const stats = [
-  { icon: Briefcase, value: 50, suffix: "+", label: "Proyectos completados" },
+  { icon: Briefcase, value: 4, suffix: "", label: "Proyectos completados" },
   { icon: Users, value: 30, suffix: "+", label: "Clientes satisfechos" },
   { icon: Calendar, value: 5, suffix: "+", label: "Años de experiencia" },
   { icon: Heart, value: 100, suffix: "%", label: "Compromiso" },
