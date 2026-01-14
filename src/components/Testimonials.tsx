@@ -12,8 +12,8 @@ const testimonials = [
   {
     quote: "TRINIUM transformó completamente nuestra forma de trabajar. La tecnología que implementaron nos ahorra horas cada semana.",
     author: "Gabriela",
-    role: "Directora de Operaciones",
-    company: "Empresa ABC",
+    role: "Presidenta del sociedad de pozo de agua",
+    company: "",
     avatar: "MG",
   },
   {
