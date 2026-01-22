@@ -1,5 +1,10 @@
-import { Heart, Mail, Phone, MapPin, Linkedin, Instagram, Github } from "lucide-react";
+import { useState } from "react";
+import { Heart, Mail, Phone, MapPin, Linkedin, Instagram, Github, Sparkles } from "lucide-react";
 import triniumLogo from "@/assets/trinium-logo.png";
+import {
+  Dialog,
+  DialogContent,
+} from "@/components/ui/dialog";
 
 const socialLinks = [
   { icon: Linkedin, href: "#", label: "LinkedIn", hoverColor: "hover:bg-[#0077b5]" },
@@ -8,6 +13,8 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const [easterEggOpen, setEasterEggOpen] = useState(false);
+
   return (
     <footer id="contacto" className="bg-foreground text-background py-16">
       <div className="container mx-auto px-4">
@@ -63,12 +70,51 @@ const Footer = () => {
         
         <div className="border-t border-background/20 pt-8 text-center">
           <p className="text-background/60 flex items-center justify-center gap-2">
-            Hecho con <Heart className="w-4 h-4 text-primary fill-primary animate-pulse" /> por TRINIUM
+            Hecho con{" "}
+            <button
+              onClick={() => setEasterEggOpen(true)}
+              className="group relative focus:outline-none"
+              aria-label="Descubre un secreto"
+            >
+              <Heart className="w-4 h-4 text-primary fill-primary animate-pulse transition-transform duration-300 group-hover:scale-125 cursor-pointer" />
+            </button>{" "}
+            por TRINIUM
           </p>
           <p className="text-background/60 mt-2">
             © {new Date().getFullYear()} TRINIUM. Estamos para ayudarte.
           </p>
         </div>
+
+        {/* Easter Egg Modal */}
+        <Dialog open={easterEggOpen} onOpenChange={setEasterEggOpen}>
+          <DialogContent className="sm:max-w-md bg-gradient-to-br from-background via-background to-primary/10 border-primary/20">
+            <div className="flex flex-col items-center text-center space-y-6 py-4">
+              <div className="relative">
+                <div className="absolute inset-0 animate-ping bg-primary/20 rounded-full" />
+                <div className="relative bg-primary/10 p-4 rounded-full">
+                  <Sparkles className="w-10 h-10 text-primary" />
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  ¡Exacto! 🎯
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Sabemos que siempre esperas que cada elemento sea funcional, 
+                  que te sorprenda, que tenga un propósito.
+                </p>
+                <p className="text-foreground font-medium">
+                  Así somos en Trinium: cada detalle cuenta.
+                </p>
+                <p className="text-primary font-semibold flex items-center justify-center gap-2">
+                  Tecnología con corazón, siempre.
+                  <Heart className="w-4 h-4 fill-primary" />
+                </p>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </footer>
   );
