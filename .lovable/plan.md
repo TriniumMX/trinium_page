@@ -1,54 +1,55 @@
 
-## Plan: Hacer Interactivas las Tarjetas de "¿Qué hacemos?"
 
-### Problema Actual
-Las tarjetas tienen efectos visuales al pasar el mouse (hover), pero al hacer clic no sucede nada. Esto puede frustrar al visitante que espera interactividad.
+## Plan: Hacer Interactiva la Sección "¿Cómo trabajamos?"
 
-### Solución Propuesta
-Agregar un modal/diálogo que se abre al hacer clic en cada tarjeta, con contenido persuasivo usando técnicas de copywriting.
+### Situacion Actual
+Los círculos de cada paso tienen un efecto hover (escala) pero al hacer clic no sucede nada. Siguiendo el mismo enfoque que implementamos en "¿Qué hacemos?", podemos agregar interactividad con modales persuasivos.
 
-### Contenido de Cada Tarjeta (expandido)
+### Propuesta
 
-**1. Desarrollo de herramientas digitales**
-- Hook: "¿Tu negocio depende de Excel o papel?"
-- Mensaje: "Creamos apps y sistemas a tu medida. Fáciles de usar, que realmente resuelven tus problemas del día a día."
-- CTA: "Cuéntanos tu reto"
+Cada paso del proceso se vuelve clickeable y muestra un modal con contenido expandido usando copywriting:
 
-**2. Sistemas para organización**
-- Hook: "¿Pierdes tiempo buscando información?"
-- Mensaje: "Diseñamos plataformas donde todo está en su lugar. Encuentra lo que necesitas en segundos, no en horas."
-- CTA: "Organicemos tu mundo"
+**1. Te escuchamos**
+- Hook: "¿Cansado de que no te entiendan?"
+- Mensaje: "No solo escuchamos tus palabras, entendemos tu problema real. Hacemos las preguntas correctas para darte exactamente lo que necesitas."
+- Tono: Empatía y conexión
 
-**3. Soluciones en la nube**
-- Hook: "¿Te preocupa perder tu información?"
-- Mensaje: "Tu información segura, accesible desde cualquier lugar. Sin miedo a que algo se borre o se pierda."
-- CTA: "Protege tu negocio"
+**2. Lo hacemos simple**
+- Hook: "¿La tecnología te parece complicada?"
+- Mensaje: "Nosotros hablamos tu idioma. Sin tecnicismos, sin jerga confusa. Te explicamos todo de forma clara para que siempre sepas qué está pasando."
+- Tono: Tranquilidad
 
-**4. Automatizaciones inteligentes**
-- Hook: "¿Cuántas horas pierdes en tareas repetitivas?"
-- Mensaje: "Automatizamos lo tedioso para que tú te enfoques en lo importante. Más tiempo, menos estrés."
-- CTA: "Ahorra tiempo ahora"
+**3. Lo construimos**
+- Hook: "¿Has tenido malas experiencias con proyectos?"
+- Mensaje: "Cada línea de código la escribimos pensando en ti. Con atención al detalle, probando todo antes de entregarlo. Nada sale de aquí sin estar perfecto."
+- Tono: Confianza y profesionalismo
 
-### Cambios Técnicos
+**4. Te acompañamos**
+- Hook: "¿Te han dejado solo después de entregar?"
+- Mensaje: "No desaparecemos cuando termina el proyecto. Estamos aquí para resolver dudas, hacer ajustes y crecer contigo. Somos tu equipo de tecnología."
+- Tono: Compromiso a largo plazo
 
-1. **Actualizar tipo de servicio** con campos adicionales:
-   - `hook`: Pregunta que genera curiosidad
-   - `expandedDescription`: Mensaje más detallado
-   - `cta`: Llamado a la acción
+### Cambios Tecnicos
 
-2. **Agregar estado y modal** al componente:
-   - Estado `selectedService` para el servicio seleccionado
-   - Dialog de shadcn/ui para mostrar el contenido expandido
+1. **Expandir la estructura de datos** de cada paso con:
+   - `hook`: Pregunta que conecta con un dolor
+   - `expandedDescription`: Mensaje persuasivo completo
+   - `cta`: Llamado a la accion personalizado
 
-3. **Mejorar las tarjetas**:
-   - Agregar `cursor-pointer`
-   - Pequeño indicador visual de "Ver más" o ícono sutil
-   - Animación suave al abrir el modal
+2. **Agregar interactividad**:
+   - Los circulos seran botones clickeables
+   - Estado `selectedStep` para controlar el modal
+   - Efecto visual mejorado al hover (pulse suave o glow)
 
-4. **Diseño del modal**:
-   - Hook como título llamativo
-   - Descripción expandida con el mensaje persuasivo
-   - Botón CTA que lleva al formulario de contacto
+3. **Dialog con estilo consistente**:
+   - Mismo patron que usamos en WhatWeDo
+   - Icono del paso en el encabezado
+   - CTA que lleva al contacto
+
+4. **Numero de paso visible**:
+   - Agregar un indicador de numero (1, 2, 3, 4) en cada circulo o como badge
+   - Refuerza la idea de proceso/flujo
 
 ### Resultado Esperado
-Cada tarjeta será clickeable y mostrará un mensaje personalizado que conecta emocionalmente con el visitante, usando preguntas que identifican sus problemas y ofreciendo soluciones claras con un llamado a la acción directo.
+Los visitantes podran hacer clic en cualquier paso para entender mejor que significa trabajar con Trinium, recibiendo mensajes que generan confianza y demuestran que cada etapa tiene un proposito claro.
+
