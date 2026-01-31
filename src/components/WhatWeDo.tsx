@@ -106,13 +106,9 @@ const WhatWeDo = () => {
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Sparkles className="w-4 h-4" />
-                    Descubre más
-                  </span>
                 </button>
               );
             })}
