@@ -135,17 +135,6 @@ const WhatWeDo = () => {
             )}
           </DialogHeader>
           
-          {selectedService && (
-            <div className="mt-6 flex flex-col gap-3">
-              <Button 
-                onClick={handleCTAClick}
-                className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
-              >
-                {selectedService.cta}
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-          )}
         </DialogContent>
       </Dialog>
     </>
