@@ -11,24 +11,24 @@ const projects: Project[] = [
   {
     name: "Hydra",
     description: "Sistema de gestión de pozo de agua, usuarios y medidores",
-    fullDescription: "Sistema integral para la gestión de pozos de agua, control de usuarios, medidores y facturación automática.",
+    fullDescription: "Sistema integral para la gestión de pozos de agua, control de usuarios, medidores y cobranza",
     image: hydraLogo,
     features: [
       "Control de consumo por medidor",
-      "Facturación automática",
+      "Cobros de servicio",
       "Gestión de usuarios y permisos",
-      "Reportes en tiempo real",
+      "Control de almacen",
     ],
   },
   {
     name: "BUNKER",
     description: "Plataforma de gobernanza e identidad Digital",
-    fullDescription: "Plataforma segura para gestión de identidad digital, firma electrónica y gobernanza corporativa.",
+    fullDescription: "Plataforma segura para gestión de identidad digital y gobernanza corporativa.",
     image: bunkerLogo,
     features: [
-      "Autenticación multifactor",
-      "Firma electrónica avanzada",
-      "Gestión de documentos",
+      "ID ciudadano",
+      "Control de aportaciones comunitarias",
+      "Gestión de asambleas y eventos",
       "Auditoría y trazabilidad",
     ],
   },
@@ -41,7 +41,7 @@ const projects: Project[] = [
       "Interfaz sencilla",
       "Control de inventario",
       "Reportes de ventas",
-      "Múltiples métodos de pago",
+      "Control de caja",
     ],
   },
   {
@@ -51,15 +51,15 @@ const projects: Project[] = [
     image: inventoryCloudLogo,
     features: [
       "Sincronización en tiempo real",
-      "Alertas de stock bajo",
-      "Múltiples almacenes",
-      "Códigos de barras y QR",
+      "Control de resguardos",
+      "Múltiples comodatos",
+      "Códigos QR",
     ],
   },
   {
-    name: "Sitio web SJR",
+    name: "Sitios Web",
     description: "Presencia digital moderna que comunica y conecta con las personas correctas.",
-    fullDescription: "Diseño web moderno optimizado para SEO y conversión, creando una presencia digital memorable.",
+    fullDescription: "Diseño web moderno optimizado, creando una presencia digital memorable.",
     icon: Globe,
     features: [
       "Diseño responsive",
@@ -69,9 +69,9 @@ const projects: Project[] = [
     ],
   },
   {
-    name: "MERIDIA",
+    name: "EVA",
     description: "Plataforma medica integral para el control de citas, referencias, contrareferencias y CIE-11",
-    fullDescription: "Sistema médico completo para gestión de citas, expedientes clínicos, referencias y codificación CIE-11.",
+    fullDescription: "Sistema médico completo para gestión de citas, expedientes clínicos, referencias y clasificación CIE-11.",
     icon: Stethoscope,
     features: [
       "Agenda de citas inteligente",
