@@ -12,6 +12,10 @@ import bunkerLogin from "@/assets/proyects/Bunker/bunker-login.jpg";
 import bunkerPadron from "@/assets/proyects/Bunker/bunker-padron.jpg";
 import bunkerAsambleas from "@/assets/proyects/Bunker/bunker-asambleas.jpg";
 import bunkerRoles from "@/assets/proyects/Bunker/bunker-roles.jpg";
+import marialeMain from "@/assets/proyects/Mariale/mariale-main.jpg";
+import marialeProductos from "@/assets/proyects/Mariale/mariale-productos.jpg";
+import marialeCorte from "@/assets/proyects/Mariale/mariale-corte.jpg";
+import marialeReportes from "@/assets/proyects/Mariale/mariale-reportes.jpg";
 import ProjectModal, { type Project } from "./ProjectModal";
 
 const projects: Project[] = [
@@ -45,6 +49,7 @@ const projects: Project[] = [
     description: "Sistema simple de punto de venta",
     fullDescription: "Punto de venta intuitivo y rápido, diseñado para pequeños y medianos negocios.",
     image: marialeLogo,
+    screenshots: [marialeMain, marialeProductos, marialeCorte, marialeReportes],
     features: [
       "Interfaz sencilla",
       "Control de inventario",
