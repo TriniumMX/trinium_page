@@ -5,6 +5,9 @@ import hydraLogo from "@/assets/hydra-logo.png";
 import bunkerLogo from "@/assets/bunker-logo.png";
 import marialeLogo from "@/assets/mariale-logo.png";
 import inventoryCloudLogo from "@/assets/inventory-cloud-logo.png";
+import inventoryDashboard from "@/assets/proyects/Inventory/inventory-dahboard.jpg";
+import inventoryResguardos from "@/assets/proyects/Inventory/inventory-resguardos.jpg";
+import inventoryReportes from "@/assets/proyects/Inventory/inventory-resportes.jpg";
 import ProjectModal, { type Project } from "./ProjectModal";
 
 const projects: Project[] = [
@@ -49,6 +52,7 @@ const projects: Project[] = [
     description: "Control de inventario en tiempo real, desde cualquier lugar, sin perder detalle.",
     fullDescription: "Solución en la nube para gestionar tu inventario desde cualquier dispositivo, con actualizaciones en tiempo real.",
     image: inventoryCloudLogo,
+    screenshots: [inventoryDashboard, inventoryResguardos, inventoryReportes],
     features: [
       "Sincronización en tiempo real",
       "Control de resguardos",
