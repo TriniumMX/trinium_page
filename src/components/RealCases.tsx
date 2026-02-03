@@ -8,6 +8,10 @@ import inventoryCloudLogo from "@/assets/inventory-cloud-logo.png";
 import inventoryDashboard from "@/assets/proyects/Inventory/inventory-dahboard.jpg";
 import inventoryResguardos from "@/assets/proyects/Inventory/inventory-resguardos.jpg";
 import inventoryReportes from "@/assets/proyects/Inventory/inventory-resportes.jpg";
+import bunkerLogin from "@/assets/proyects/Bunker/bunker-login.jpg";
+import bunkerPadron from "@/assets/proyects/Bunker/bunker-padron.jpg";
+import bunkerAsambleas from "@/assets/proyects/Bunker/bunker-asambleas.jpg";
+import bunkerRoles from "@/assets/proyects/Bunker/bunker-roles.jpg";
 import ProjectModal, { type Project } from "./ProjectModal";
 
 const projects: Project[] = [
@@ -28,6 +32,7 @@ const projects: Project[] = [
     description: "Plataforma de gobernanza e identidad Digital",
     fullDescription: "Plataforma segura para gestión de identidad digital y gobernanza corporativa.",
     image: bunkerLogo,
+    screenshots: [bunkerLogin, bunkerPadron, bunkerAsambleas, bunkerRoles],
     features: [
       "ID ciudadano",
       "Control de aportaciones comunitarias",
