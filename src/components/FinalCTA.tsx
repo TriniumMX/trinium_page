@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import ContactModal from "./ContactModal";
 
 const FinalCTA = () => {
   const { ref, isVisible } = useScrollReveal();
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <section className="py-20 md:py-32 bg-gradient-soft" ref={ref}>
+    <section id="contacto" className="py-20 md:py-32 bg-gradient-soft" ref={ref}>
       <div className="container mx-auto px-4">
         <div 
           className="max-w-3xl mx-auto text-center space-y-8"
@@ -27,9 +30,10 @@ const FinalCTA = () => {
           <Button 
             size="lg" 
             className="bg-gradient-primary text-primary-foreground hover:opacity-90 hover:scale-105 transition-all text-lg px-10 py-7 rounded-full group shadow-lg hover:shadow-xl"
+            onClick={() => setContactOpen(true)}
           >
             <Mail className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-            Contáctanos
+            Escríbenos ahora
           </Button>
           
           <p className="text-muted-foreground pt-4">
@@ -37,6 +41,8 @@ const FinalCTA = () => {
           </p>
         </div>
       </div>
+
+      <ContactModal open={contactOpen} onOpenChange={setContactOpen} />
     </section>
   );
 };
