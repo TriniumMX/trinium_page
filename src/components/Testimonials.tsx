@@ -13,7 +13,7 @@ const testimonials = [
     quote: "TRINIUM transformó completamente nuestra forma de trabajar. La tecnología que implementaron nos ahorra horas cada semana.",
     author: "Gabriela",
     role: "Presidenta del sociedad de pozo de agua",
-    company: "",
+    company: "Sociedad AC",
     avatar: "MG",
   },
   {
@@ -25,10 +25,10 @@ const testimonials = [
   },
   {
     quote: "El equipo de TRINIUM se convirtió en parte de nuestro equipo. Su compromiso y profesionalismo son excepcionales.",
-    author: "Ana Martínez",
-    role: "CEO",
-    company: "StartUp Plus",
-    avatar: "AM",
+    author: "Arturo Salinas",
+    role: "Director",
+    company: "Municipio",
+    avatar: "AS",
   },
   {
     quote: "Gracias a TRINIUM, nuestros procesos médicos son más eficientes y nuestros pacientes reciben mejor atención.",
