@@ -1,55 +1,69 @@
 
 
-## Plan: Hacer Interactiva la Sección "¿Cómo trabajamos?"
+## Plan: CTA de contacto con WhatsApp + Formulario (CRO optimizado)
 
-### Situacion Actual
-Los círculos de cada paso tienen un efecto hover (escala) pero al hacer clic no sucede nada. Siguiendo el mismo enfoque que implementamos en "¿Qué hacemos?", podemos agregar interactividad con modales persuasivos.
+### Concepto
 
-### Propuesta
+Reemplazar el botón estático "Contáctanos" con un sistema dual que maximiza conversión: al hacer clic se abre un modal con dos opciones claras — **WhatsApp** (acción rápida, alta conversión en LATAM) y **Formulario de contacto** (captura de leads).
 
-Cada paso del proceso se vuelve clickeable y muestra un modal con contenido expandido usando copywriting:
+### Mejores prácticas CRO aplicadas
 
-**1. Te escuchamos**
-- Hook: "¿Cansado de que no te entiendan?"
-- Mensaje: "No solo escuchamos tus palabras, entendemos tu problema real. Hacemos las preguntas correctas para darte exactamente lo que necesitas."
-- Tono: Empatía y conexión
+- **Reducir fricción**: WhatsApp abre con mensaje prellenado, el formulario es mínimo (nombre, email/teléfono, mensaje)
+- **Urgencia social**: Mostrar "Respondemos en menos de 24 hrs" como refuerzo
+- **Dos caminos**: Usuarios que prefieren inmediatez → WhatsApp. Usuarios que prefieren dejar datos → formulario
+- **No sacar al usuario de la página**: Todo dentro de un modal
+- **Validación con Zod**: Inputs seguros y con feedback claro
 
-**2. Lo hacemos simple**
-- Hook: "¿La tecnología te parece complicada?"
-- Mensaje: "Nosotros hablamos tu idioma. Sin tecnicismos, sin jerga confusa. Te explicamos todo de forma clara para que siempre sepas qué está pasando."
-- Tono: Tranquilidad
+### Cambios técnicos
 
-**3. Lo construimos**
-- Hook: "¿Has tenido malas experiencias con proyectos?"
-- Mensaje: "Cada línea de código la escribimos pensando en ti. Con atención al detalle, probando todo antes de entregarlo. Nada sale de aquí sin estar perfecto."
-- Tono: Confianza y profesionalismo
+1. **Crear `src/components/ContactModal.tsx`**
+   - Modal con dos pestañas/opciones: "WhatsApp" y "Formulario"
+   - Opción WhatsApp: botón que abre `https://wa.me/529991234567?text=...` con mensaje prellenado
+   - Opción Formulario: campos nombre, email, teléfono (opcional), mensaje con validación Zod
+   - El formulario usa `mailto:hola@trinium.com.mx` con los datos o muestra un toast de confirmación
+   - Indicador de tiempo de respuesta: "Respondemos en menos de 24 hrs"
 
-**4. Te acompañamos**
-- Hook: "¿Te han dejado solo después de entregar?"
-- Mensaje: "No desaparecemos cuando termina el proyecto. Estamos aquí para resolver dudas, hacer ajustes y crecer contigo. Somos tu equipo de tecnología."
-- Tono: Compromiso a largo plazo
+2. **Actualizar `src/components/FinalCTA.tsx`**
+   - Integrar el modal al botón "Contáctanos"
+   - Cambiar texto del botón a algo más orientado a acción: "Escríbenos ahora"
 
-### Cambios Tecnicos
+3. **Actualizar `src/components/Header.tsx`**
+   - El botón "Hablemos" del header también abrirá el mismo modal en lugar de solo hacer scroll
 
-1. **Expandir la estructura de datos** de cada paso con:
-   - `hook`: Pregunta que conecta con un dolor
-   - `expandedDescription`: Mensaje persuasivo completo
-   - `cta`: Llamado a la accion personalizado
+### Estructura del modal
 
-2. **Agregar interactividad**:
-   - Los circulos seran botones clickeables
-   - Estado `selectedStep` para controlar el modal
-   - Efecto visual mejorado al hover (pulse suave o glow)
+```text
+┌──────────────────────────────┐
+│       ¿Cómo prefieres        │
+│        contactarnos?         │
+│                              │
+│  ┌─────────┐  ┌───────────┐  │
+│  │WhatsApp  │  │ Formulario│  │
+│  │  (icon)  │  │  (icon)   │  │
+│  │ Escribe  │  │  Déjanos  │  │
+│  │  ahora   │  │ tus datos │  │
+│  └─────────┘  └───────────┘  │
+│                              │
+│  Respondemos en < 24 hrs ⚡  │
+└──────────────────────────────┘
+```
 
-3. **Dialog con estilo consistente**:
-   - Mismo patron que usamos en WhatWeDo
-   - Icono del paso en el encabezado
-   - CTA que lleva al contacto
+Al elegir "Formulario" se expande/cambia a:
 
-4. **Numero de paso visible**:
-   - Agregar un indicador de numero (1, 2, 3, 4) en cada circulo o como badge
-   - Refuerza la idea de proceso/flujo
+```text
+┌──────────────────────────────┐
+│     Cuéntanos tu proyecto    │
+│  ┌────────────────────────┐  │
+│  │ Nombre                 │  │
+│  ├────────────────────────┤  │
+│  │ Email o teléfono       │  │
+│  ├────────────────────────┤  │
+│  │ ¿En qué te ayudamos?  │  │
+│  └────────────────────────┘  │
+│  [ Enviar mensaje ]          │
+│  Respondemos en < 24 hrs ⚡  │
+└──────────────────────────────┘
+```
 
-### Resultado Esperado
-Los visitantes podran hacer clic en cualquier paso para entender mejor que significa trabajar con Trinium, recibiendo mensajes que generan confianza y demuestran que cada etapa tiene un proposito claro.
+> **Nota**: Sin backend conectado, el formulario generará un `mailto:` con los datos formateados. Si en el futuro conectas Supabase, se puede guardar en base de datos.
 
