@@ -1,55 +1,47 @@
 
 
-## Plan: Hacer Interactiva la Sección "¿Cómo trabajamos?"
+## Plan: Subsección de Infraestructura y DevOps dentro de "¿Qué hacemos?"
 
-### Situacion Actual
-Los círculos de cada paso tienen un efecto hover (escala) pero al hacer clic no sucede nada. Siguiendo el mismo enfoque que implementamos en "¿Qué hacemos?", podemos agregar interactividad con modales persuasivos.
+### Concepto
 
-### Propuesta
+Agregar un bloque debajo de las 4 tarjetas actuales con un título como **"También cuidamos lo que no se ve"** y tarjetas de servicios de infraestructura. Tono semi-técnico: mencionar tecnologías clave pero con explicaciones accesibles.
 
-Cada paso del proceso se vuelve clickeable y muestra un modal con contenido expandido usando copywriting:
+### Cambios en `src/components/WhatWeDo.tsx`
 
-**1. Te escuchamos**
-- Hook: "¿Cansado de que no te entiendan?"
-- Mensaje: "No solo escuchamos tus palabras, entendemos tu problema real. Hacemos las preguntas correctas para darte exactamente lo que necesitas."
-- Tono: Empatía y conexión
+Después del grid de 4 servicios, agregar una subsección con:
 
-**2. Lo hacemos simple**
-- Hook: "¿La tecnología te parece complicada?"
-- Mensaje: "Nosotros hablamos tu idioma. Sin tecnicismos, sin jerga confusa. Te explicamos todo de forma clara para que siempre sepas qué está pasando."
-- Tono: Tranquilidad
+**Subtítulo animado**: "También cuidamos lo que no se ve" + bajada: "Con más de 15 años de experiencia en infraestructura IT"
 
-**3. Lo construimos**
-- Hook: "¿Has tenido malas experiencias con proyectos?"
-- Mensaje: "Cada línea de código la escribimos pensando en ti. Con atención al detalle, probando todo antes de entregarlo. Nada sale de aquí sin estar perfecto."
-- Tono: Confianza y profesionalismo
+**3 tarjetas de infraestructura** (grid de 3 columnas en desktop):
 
-**4. Te acompañamos**
-- Hook: "¿Te han dejado solo después de entregar?"
-- Mensaje: "No desaparecemos cuando termina el proyecto. Estamos aquí para resolver dudas, hacer ajustes y crecer contigo. Somos tu equipo de tecnología."
-- Tono: Compromiso a largo plazo
+1. **Servidores y Datacenter**
+   - Icono: `Server`
+   - Descripción: "Configuración y mantenimiento de servidores Windows y Linux, arreglos RAID, gestión remota con ILO/iDRAC"
+   - Hook modal: "¿Tu servidor se cae y nadie sabe por qué?"
+   - Expandido: "Configuramos y mantenemos servidores físicos y virtuales con monitoreo proactivo. Experiencia con RAID, ILO, iDRAC, IIS y Nginx."
 
-### Cambios Tecnicos
+2. **Redes y Conectividad**
+   - Icono: `Wifi`
+   - Descripción: "Redes empresariales con Mikrotik, WiFi mesh administrado, VPNs y enlaces de microondas de largo alcance"
+   - Hook modal: "¿Tu red es lenta o inestable?"
+   - Expandido: "Diseñamos redes robustas con equipos Mikrotik, WiFi mesh, VPNs Endian y enlaces punto a punto para conectar sucursales."
 
-1. **Expandir la estructura de datos** de cada paso con:
-   - `hook`: Pregunta que conecta con un dolor
-   - `expandedDescription`: Mensaje persuasivo completo
-   - `cta`: Llamado a la accion personalizado
+3. **Seguridad IT**
+   - Icono: `Shield`
+   - Descripción: "Seguridad perimetral, filtros de contenido, DHCP administrado y control de acceso a la red"
+   - Hook modal: "¿Sabes quién accede a tu red?"
+   - Expandido: "Implementamos firewalls, filtros de contenido, segmentación de red y políticas de seguridad para proteger tu infraestructura."
 
-2. **Agregar interactividad**:
-   - Los circulos seran botones clickeables
-   - Estado `selectedStep` para controlar el modal
-   - Efecto visual mejorado al hover (pulse suave o glow)
+Las tarjetas usarán el mismo patrón interactivo (click → modal con hook + descripción expandida) y las mismas animaciones de scroll reveal que las existentes.
 
-3. **Dialog con estilo consistente**:
-   - Mismo patron que usamos en WhatWeDo
-   - Icono del paso en el encabezado
-   - CTA que lleva al contacto
+### Estructura visual
 
-4. **Numero de paso visible**:
-   - Agregar un indicador de numero (1, 2, 3, 4) en cada circulo o como badge
-   - Refuerza la idea de proceso/flujo
+```text
+[  4 tarjetas actuales de servicios  ]
 
-### Resultado Esperado
-Los visitantes podran hacer clic en cualquier paso para entender mejor que significa trabajar con Trinium, recibiendo mensajes que generan confianza y demuestran que cada etapa tiene un proposito claro.
+── También cuidamos lo que no se ve ──
+   +15 años de experiencia en infra IT
+
+[ Servidores ]  [ Redes ]  [ Seguridad ]
+```
 
