@@ -1,73 +1,86 @@
-# Welcome to your Lovable project
+# TRINIUM — Tecnología con corazón 💙
 
-## Project info
+![TRINIUM](src/assets/trinium-logo.png)
 
-**URL**: https://lovable.dev/projects/728107fb-5b26-46c5-a2d0-07e66975aea8
+Sitio web corporativo de **TRINIUM**, empresa mexicana de tecnología especializada en desarrollo de software a la medida, automatización de procesos e infraestructura IT.
 
-## How can I edit this code?
+## 🌐 Demo
 
-There are several ways of editing your application.
+🔗 [Ver sitio en vivo](https://lovable.dev/projects/728107fb-5b26-46c5-a2d0-07e66975aea8)
 
-**Use Lovable**
+## ✨ Características
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/728107fb-5b26-46c5-a2d0-07e66975aea8) and start prompting.
+- **Landing page moderna** con animaciones scroll-reveal y diseño responsivo
+- **Modo claro/oscuro** con cambio dinámico de assets
+- **Portafolio interactivo** con carruseles de capturas reales de proyectos (Inventory Cloud, BUNKER, MARIALE, MERIDIA)
+- **Sección de servicios** con modales informativos al hacer clic
+- **Infraestructura IT** — subsección técnica destacando +15 años de experiencia en servidores, redes y seguridad
+- **CTA dual** — contacto rápido vía WhatsApp + formulario con mailto
+- **Easter egg** oculto en el footer 🎯
+- **SEO optimizado** con meta tags, JSON-LD y HTML semántico
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Stack tecnológico
 
-**Use your preferred IDE**
+| Tecnología | Uso |
+|---|---|
+| **React 18** | UI components |
+| **TypeScript** | Tipado estático |
+| **Vite 5** | Build tool y dev server |
+| **Tailwind CSS v3** | Estilos utilitarios |
+| **shadcn/ui** | Componentes UI (Radix UI) |
+| **next-themes** | Modo claro/oscuro |
+| **Lucide React** | Iconografía |
+| **React Router** | Navegación SPA |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Instalación
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Clonar el repositorio
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Entrar al directorio
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Instalar dependencias
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Iniciar servidor de desarrollo
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 📁 Estructura del proyecto
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── assets/          # Logos, capturas de pantalla de proyectos
+├── components/      # Componentes de la landing
+│   ├── ui/          # Componentes shadcn/ui
+│   ├── Header.tsx   # Navegación con logo dinámico
+│   ├── Hero.tsx     # Sección principal
+│   ├── WhatWeDo.tsx # Servicios + Infraestructura IT
+│   ├── HowWeWork.tsx
+│   ├── RealCases.tsx # Portafolio con carruseles
+│   ├── WhyTrinium.tsx
+│   ├── Philosophy.tsx
+│   ├── ContactModal.tsx # WhatsApp + Formulario
+│   └── Footer.tsx
+├── hooks/           # Custom hooks (scroll reveal, mobile)
+├── pages/           # Páginas (Index, NotFound)
+└── index.css        # Design system y tokens CSS
+```
 
-**Use GitHub Codespaces**
+## 🎨 Servicios destacados
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Desarrollo de Software
+- Sistemas web y móviles a la medida
+- Automatización de procesos empresariales
+- Dashboards y reportes
 
-## What technologies are used for this project?
+### Infraestructura IT (+15 años)
+- **Servidores**: Windows/Linux, RAID, ILO/iDRAC, IIS, Nginx
+- **Redes**: Mikrotik, WiFi Mesh, VPNs Endian, enlaces de microondas
+- **Seguridad**: Firewalls, filtros de contenido, segmentación de red
 
-This project is built with:
+## 📄 Licencia
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/728107fb-5b26-46c5-a2d0-07e66975aea8) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2025 TRINIUM. Todos los derechos reservados.
