@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import triniumLogo from "@/assets/trinium-logo.png";
+import triniumLogoDark from "@/assets/trinium-logo-dark.png";
 import FloatingShapes from "./FloatingShapes";
 
 const Hero = () => {
@@ -40,7 +41,12 @@ const Hero = () => {
             <img 
               src={triniumLogo} 
               alt="TRINIUM - Tecnología con corazón" 
-              className="relative w-full max-w-2xl mx-auto drop-shadow-2xl animate-float" 
+              className="relative w-full max-w-2xl mx-auto drop-shadow-2xl animate-float dark:hidden" 
+            />
+            <img 
+              src={triniumLogoDark} 
+              alt="TRINIUM - Tecnología con corazón" 
+              className="relative w-full max-w-2xl mx-auto drop-shadow-2xl animate-float hidden dark:block" 
             />
           </div>
         </div>
