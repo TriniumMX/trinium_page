@@ -2,10 +2,7 @@ import { useState } from "react";
 import { Heart, Mail, Phone, MapPin, Linkedin, Instagram, Github, Sparkles } from "lucide-react";
 import triniumLogo from "@/assets/trinium-logo.png";
 import triniumLogoDark from "@/assets/trinium-logo-dark.png";
-import {
-  Dialog,
-  DialogContent,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const socialLinks = [
   { icon: Linkedin, href: "#", label: "LinkedIn", hoverColor: "hover:bg-[#0077b5]" },
@@ -21,31 +18,24 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div className="space-y-4">
-            <img 
-              src={triniumLogo} 
-              alt="TRINIUM Logo" 
-              className="h-12 w-auto brightness-0 invert dark:hidden"
-            />
-            <img 
-              src={triniumLogoDark} 
-              alt="TRINIUM Logo" 
-              className="h-12 w-auto hidden dark:block"
-            />
-            <p className="text-background/80 leading-relaxed">
-              Tecnología con corazón para hacer tu vida más fácil.
-            </p>
+            <img src={triniumLogo} alt="TRINIUM Logo" className="h-12 w-auto brightness-0 invert dark:hidden" />
+            <img src={triniumLogoDark} alt="TRINIUM Logo" className="h-12 w-auto hidden dark:block" />
+            <p className="text-background/80 leading-relaxed">Tecnología con corazón para hacer tu vida más fácil.</p>
           </div>
-          
+
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Contacto</h3>
             <div className="space-y-3 text-background/80">
-              <a href="mailto:hola@trinium.com.mx" className="flex items-center gap-3 hover:text-primary transition-colors">
+              <a
+                href="mailto:hola@trinium.com.mx"
+                className="flex items-center gap-3 hover:text-primary transition-colors"
+              >
                 <Mail className="w-5 h-5" />
                 <span>hola@trinium.com.mx</span>
               </a>
-              <a href="tel:+529991234567" className="flex items-center gap-3 hover:text-primary transition-colors">
+              <a href="tel:+524271234567" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <Phone className="w-5 h-5" />
-                <span>+52 (999) 123-4567</span>
+                <span>+52 (427) 123-4567</span>
               </a>
               <div className="flex items-center gap-3">
                 <MapPin className="w-5 h-5" />
@@ -53,16 +43,16 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Síguenos</h3>
             <div className="flex gap-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
-                  <a 
+                  <a
                     key={social.label}
-                    href={social.href} 
+                    href={social.href}
                     className={`w-10 h-10 rounded-full bg-background/10 flex items-center justify-center transition-all duration-300 hover:scale-110 ${social.hoverColor}`}
                     aria-label={social.label}
                   >
@@ -73,7 +63,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-background/20 pt-8 text-center">
           <p className="text-background/60 flex items-center justify-center gap-2">
             Hecho con{" "}
@@ -86,9 +76,7 @@ const Footer = () => {
             </button>{" "}
             por TRINIUM
           </p>
-          <p className="text-background/60 mt-2">
-            © {new Date().getFullYear()} TRINIUM. Estamos para ayudarte.
-          </p>
+          <p className="text-background/60 mt-2">© {new Date().getFullYear()} TRINIUM. Estamos para ayudarte.</p>
         </div>
 
         {/* Easter Egg Modal */}
@@ -101,18 +89,15 @@ const Footer = () => {
                   <Sparkles className="w-10 h-10 text-primary" />
                 </div>
               </div>
-              
+
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   ¡Exacto! 🎯
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Sabemos que siempre esperas que cada elemento sea funcional, 
-                  que te sorprenda, que tenga un propósito.
+                  Sabemos que siempre esperas que cada elemento sea funcional, que te sorprenda, que tenga un propósito.
                 </p>
-                <p className="text-foreground font-medium">
-                  Así somos en Trinium: cada detalle cuenta.
-                </p>
+                <p className="text-foreground font-medium">Así somos en Trinium: cada detalle cuenta.</p>
                 <p className="text-primary font-semibold flex items-center justify-center gap-2">
                   Tecnología con corazón, siempre.
                   <Heart className="w-4 h-4 fill-primary" />
