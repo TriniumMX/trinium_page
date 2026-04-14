@@ -6,7 +6,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const socialLinks = [
   { icon: Linkedin, href: "#", label: "LinkedIn", hoverColor: "hover:bg-[#0077b5]" },
-  { icon: Instagram, href: "#", label: "Instagram", hoverColor: "hover:bg-[#e4405f]" },
+  { icon: Instagram, href: "https://www.instagram.com/triniummx", label: "Instagram", hoverColor: "hover:bg-[#e4405f]" },
   { icon: Github, href: "#", label: "GitHub", hoverColor: "hover:bg-[#333]" },
 ];
 
