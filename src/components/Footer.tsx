@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Heart, Mail, Phone, MapPin, Linkedin, Instagram, Github, Sparkles } from "lucide-react";
 import triniumLogo from "@/assets/trinium-logo.png";
+import triniumLogoDark from "@/assets/trinium-logo-dark.png";
 import {
   Dialog,
   DialogContent,
@@ -23,7 +24,12 @@ const Footer = () => {
             <img 
               src={triniumLogo} 
               alt="TRINIUM Logo" 
-              className="h-12 w-auto brightness-0 invert"
+              className="h-12 w-auto brightness-0 invert dark:hidden"
+            />
+            <img 
+              src={triniumLogoDark} 
+              alt="TRINIUM Logo" 
+              className="h-12 w-auto hidden dark:block"
             />
             <p className="text-background/80 leading-relaxed">
               Tecnología con corazón para hacer tu vida más fácil.

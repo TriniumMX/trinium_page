@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import triniumLogo from "@/assets/trinium-logo.png";
+import triniumLogoDark from "@/assets/trinium-logo-dark.png";
 import ThemeToggle from "./ThemeToggle";
 import ContactModal from "./ContactModal";
 
@@ -49,7 +50,12 @@ const Header = () => {
               <img
                 src={triniumLogo}
                 alt="TRINIUM"
-                className="h-10 md:h-12 w-auto"
+                className="h-10 md:h-12 w-auto dark:hidden"
+              />
+              <img
+                src={triniumLogoDark}
+                alt="TRINIUM"
+                className="h-10 md:h-12 w-auto hidden dark:block"
               />
             </a>
 
