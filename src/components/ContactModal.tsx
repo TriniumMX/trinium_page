@@ -24,6 +24,7 @@ interface ContactModalProps {
 
 const WHATSAPP_NUMBER = "529991234567";
 const WHATSAPP_MESSAGE = "Hola, me interesa trabajar con TRINIUM. ¿Podemos platicar?";
+const WEB3FORMS_ACCESS_KEY = "01f92a66-783e-4427-93ec-e042113ad373";
 
 const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
   const [view, setView] = useState<"options" | "form" | "success">("options");
