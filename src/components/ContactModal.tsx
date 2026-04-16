@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MessageCircle, Mail, Send, ArrowLeft, Zap, CheckCircle } from "lucide-react";
+import { MessageCircle, Mail, Send, ArrowLeft, Zap, CheckCircle, Loader2 } from "lucide-react";
 import { z } from "zod";
 import { toast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Tu nombre es necesario").max(100, "Máximo 100 caracteres"),
