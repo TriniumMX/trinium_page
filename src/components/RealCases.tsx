@@ -83,7 +83,7 @@ const projects: Project[] = [
     ],
   },
   {
-    name: "EVA",
+    name: "FENIX",
     description: "Plataforma medica integral para el control de citas, referencias, contrareferencias y CIE-11",
     fullDescription: "Sistema médico completo para gestión de citas, expedientes clínicos, referencias y clasificación CIE-11.",
     icon: Stethoscope,
