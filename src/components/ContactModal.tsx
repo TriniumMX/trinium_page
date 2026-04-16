@@ -204,7 +204,7 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
                   placeholder="Cuéntanos brevemente tu idea o necesidad..."
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className={errors.message ? "border-destructive" : "" + " min-h-[100px]"}
+                  className={cn("min-h-[100px]", errors.message && "border-destructive")}
                   maxLength={1000}
                 />
                 {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
@@ -212,10 +212,20 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 rounded-full py-6 text-base group"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 rounded-full py-6 text-base group disabled:opacity-70"
               >
-                <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                Enviar mensaje
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    Enviar mensaje
+                  </>
+                )}
               </Button>
 
               <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
