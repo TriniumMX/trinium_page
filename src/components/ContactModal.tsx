@@ -73,11 +73,13 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          name: result.data.name,
-          email: result.data.contact,
-          message: result.data.message,
-          subject: "Nuevo contacto desde TRINIUM",
+          subject: `Nuevo contacto desde TRINIUM — ${result.data.name}`,
           from_name: "Web TRINIUM",
+          replyTo: result.data.contact,
+          botcheck: "",
+          "👤 Nombre": result.data.name,
+          "✉️ Email o teléfono": result.data.contact,
+          "💬 Mensaje": result.data.message,
         }),
       });
 
