@@ -30,6 +30,7 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
   const [view, setView] = useState<"options" | "form" | "success">("options");
   const [form, setForm] = useState<ContactForm>({ name: "", contact: "", message: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactForm, string>>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleClose = (isOpen: boolean) => {
     if (!isOpen) {
