@@ -47,7 +47,7 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse(form);
 
@@ -62,15 +62,46 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
     }
 
     setErrors({});
+    setIsSubmitting(true);
 
-    const subject = encodeURIComponent("Nuevo contacto desde TRINIUM");
-    const body = encodeURIComponent(
-      `Nombre: ${result.data.name}\nContacto: ${result.data.contact}\nMensaje: ${result.data.message}`
-    );
-    window.open(`mailto:hola@trinium.com.mx?subject=${subject}&body=${body}`, "_self");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: result.data.name,
+          email: result.data.contact,
+          message: result.data.message,
+          subject: "Nuevo contacto desde TRINIUM",
+          from_name: "Web TRINIUM",
+        }),
+      });
 
-    setView("success");
-    setForm({ name: "", contact: "", message: "" });
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setView("success");
+        setForm({ name: "", contact: "", message: "" });
+      } else {
+        toast({
+          title: "No pudimos enviar tu mensaje",
+          description: "Intenta de nuevo o contáctanos por WhatsApp.",
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({
+        title: "Error de conexión",
+        description: "No pudimos enviar tu mensaje. Intenta por WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
