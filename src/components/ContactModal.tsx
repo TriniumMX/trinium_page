@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MessageCircle, Mail, Send, ArrowLeft, Zap, CheckCircle } from "lucide-react";
+import { MessageCircle, Mail, Send, ArrowLeft, Zap, CheckCircle, Loader2 } from "lucide-react";
 import { z } from "zod";
 import { toast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Tu nombre es necesario").max(100, "Máximo 100 caracteres"),
@@ -23,11 +24,13 @@ interface ContactModalProps {
 
 const WHATSAPP_NUMBER = "529991234567";
 const WHATSAPP_MESSAGE = "Hola, me interesa trabajar con TRINIUM. ¿Podemos platicar?";
+const WEB3FORMS_ACCESS_KEY = "01f92a66-783e-4427-93ec-e042113ad373";
 
 const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
   const [view, setView] = useState<"options" | "form" | "success">("options");
   const [form, setForm] = useState<ContactForm>({ name: "", contact: "", message: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactForm, string>>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleClose = (isOpen: boolean) => {
     if (!isOpen) {
@@ -44,7 +47,7 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse(form);
 
@@ -59,15 +62,46 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
     }
 
     setErrors({});
+    setIsSubmitting(true);
 
-    const subject = encodeURIComponent("Nuevo contacto desde TRINIUM");
-    const body = encodeURIComponent(
-      `Nombre: ${result.data.name}\nContacto: ${result.data.contact}\nMensaje: ${result.data.message}`
-    );
-    window.open(`mailto:hola@trinium.com.mx?subject=${subject}&body=${body}`, "_self");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: result.data.name,
+          email: result.data.contact,
+          message: result.data.message,
+          subject: "Nuevo contacto desde TRINIUM",
+          from_name: "Web TRINIUM",
+        }),
+      });
 
-    setView("success");
-    setForm({ name: "", contact: "", message: "" });
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setView("success");
+        setForm({ name: "", contact: "", message: "" });
+      } else {
+        toast({
+          title: "No pudimos enviar tu mensaje",
+          description: "Intenta de nuevo o contáctanos por WhatsApp.",
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({
+        title: "Error de conexión",
+        description: "No pudimos enviar tu mensaje. Intenta por WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -170,7 +204,7 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
                   placeholder="Cuéntanos brevemente tu idea o necesidad..."
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className={errors.message ? "border-destructive" : "" + " min-h-[100px]"}
+                  className={cn("min-h-[100px]", errors.message && "border-destructive")}
                   maxLength={1000}
                 />
                 {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
@@ -178,10 +212,20 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 rounded-full py-6 text-base group"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 rounded-full py-6 text-base group disabled:opacity-70"
               >
-                <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                Enviar mensaje
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    Enviar mensaje
+                  </>
+                )}
               </Button>
 
               <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
